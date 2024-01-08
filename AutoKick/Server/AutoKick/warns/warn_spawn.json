@@ -1,5 +1,5 @@
 {
     "buttonText": "understood",
-    "description": "[img]/art/image/spawn.jpg[/img]\n\tYou appear to change your car very often. This causes many event ques and depending on the hardware of the other players quite some Lag.\n\t\n\tStop doing that or you may soon be kicked.",
+    "description": "[img]/art/image/spawn.jpg[/img]\n\tYou appear to have changed your car often.\n\nPlease try to keep the number of Car changes to a minimum,\n or you will be kicked.",
     "name": "You are constantly changing your Vehicle"
 }
