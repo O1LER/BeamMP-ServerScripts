@@ -10,10 +10,10 @@
 local ADMINS = {}
 
 -- settings
-local WARN_AFK_TIME = 8 -- (default: 8) minutes. Warns the player after this time
-local KICK_AFK_TIME = 12 -- (default: 12) minutes. Kicks the player after this time. wont affect players who are still downloading mods
+local WARN_AFK_TIME = 15 -- (default: 8) minutes. Warns the player after this time
+local KICK_AFK_TIME = 25 -- (default: 12) minutes. Kicks the player after this time. wont affect players who are still downloading mods
 local WARN_EDIT_AMOUNT = 8 -- (default: 8) amount. After this many edits warn the player
-local KICK_EDIT_AMOUNT = 10 -- (default: 10) amount. After thic many edits kick the player
+local KICK_EDIT_AMOUNT = 10 -- (default: 10) amount. After this many edits kick the player
 local WARN_SPAWN_AMOUNT = 5 -- (default: 5)
 local KICK_SPAWN_AMOUNT = 7 -- (default: 7)
 local WARN_SPAWN_UNICYCLE_AMOUNT = 3 -- (default: 3)
@@ -22,8 +22,8 @@ local KICK_SPAWN_UNICYCLE_AMOUNT = 5 -- (default: 5)
 -- this script saves the last time the player performed a edit or spawn.
 -- their edits and spawns will be reset back to 0 whenever they havent done any of those actions in the past X minutes.
 -- So if a player would spawn KICK_SPAWN_UNICYCLE_AMOUNT within WEAR_SPAWNS_UNICYCLE_EVERY then they are kicked.
-local WEAR_EDITS_EVERY = 4 -- (default: 4) minutes
-local WEAR_SPAWNS_EVERY = 4 -- (default: 4) minutes
+local WEAR_EDITS_EVERY = 5 -- (default: 4) minutes
+local WEAR_SPAWNS_EVERY = 5 -- (default: 4) minutes
 local WEAR_SPAWNS_UNICYCLE_EVERY = 3 -- (default: 3) minutes
 
 local TEMP_BAN = false -- Set to true if you want to temp ban players after they had been kicked for any reason that this script handles.
@@ -44,15 +44,15 @@ local MIN_PLAYERS_UNTIL_ACTIVE = 3 -- (default: 3)
 
 -- message given to the kicked player as their disconnect reason
 local MSG_AFK_KICK = "AutoKick: You have been AFK for to long"
-local MSG_EDIT_KICK = "AutoKick: If you need to build/tune a car, visit the Garage"
-local MSG_SPAWN_KICK = "AutoKick: Dont know why you feel the need to constantly spawn new cars"
-local MSG_SPAWN_UNICYCLE_KICK = "AutoKick: Why would you constantly spawn player models"
+local MSG_EDIT_KICK = "AutoKick: Please keep the number of individual edits to your Car at a minimum"
+local MSG_SPAWN_KICK = "AutoKick: Please keep the number of car spawns in short succession at a minimum"
+local MSG_SPAWN_UNICYCLE_KICK = "AutoKick: Please keep the number of player models at a minimum"
 
 -- message given to the other players
-local MSG_AFK_KICK_BROADCAST = 'AutoKick: "%" appears to have gone afk'
-local MSG_EDIT_KICK_BROADCAST = 'AutoKick: "%". Causes to many Ques'
-local MSG_SPAWN_KICK_BROADCAST = 'AutoKick: "%". Causes to many Ques'
-local MSG_SPAWN_UNICYCLE_BROADCAST = 'AutoKick: "%". Constantly spawned player models'
+local MSG_AFK_KICK_BROADCAST = 'AutoKick: "%" was AFK for too long and got auto-kicked'
+local MSG_EDIT_KICK_BROADCAST = 'AutoKick: "%" caused too many edits in a short time and got auto-kicked'
+local MSG_SPAWN_KICK_BROADCAST = 'AutoKick: "%" caused too many car spawns in a short time and got auto-kicked'
+local MSG_SPAWN_UNICYCLE_BROADCAST = 'AutoKick: "%"caused too many player model spawns and got auto-kicked'
 
 -- NO NEED TO EDIT ANY OF THE BELOW VARIABLES
 -- ----------------------------------------------------------------------------------------
